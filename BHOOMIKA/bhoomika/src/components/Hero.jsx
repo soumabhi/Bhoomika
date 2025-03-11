@@ -28,7 +28,7 @@ const Hero = () => {
                   </div>
               ))}
           </Slide>
-          <Footer/>
+        
         </div>
         </>
     );
