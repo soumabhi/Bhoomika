@@ -7,6 +7,7 @@ import check from "../assets/check.jpeg";
 import eyed from "../assets/eyed.jpeg";
 import device from "../assets/device.jpeg";
 import eyec from "../assets/eyec.jpeg";
+import Footer from './Footer';
 
 const Hero = () => {
     const images = [
@@ -27,6 +28,7 @@ const Hero = () => {
                   </div>
               ))}
           </Slide>
+          <Footer/>
         </div>
         </>
     );
