@@ -11,7 +11,7 @@ const Navbar = () => {
             <div className='flex items-center justify-between gap-8'>
               <ul className='hidden lg:flex flex-row lg:gap-8 font-semibold'>
                <a href="/"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>Home</li></a> 
-              <a href=""><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>About</li></a>  
+              <a href="/about"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>About</li></a>  
                <a href="/service"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>Services</li></a> 
                <a href=""><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>Blogs</li></a> 
                <a href=""><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>Career</li></a> 
