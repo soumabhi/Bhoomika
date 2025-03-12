@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import About from "./pages/About";
 import Appoitment from "./pages/Appoitment";
-import Carear from "./pages/Carear";
+import Career from "./pages/Career";
 import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 
@@ -21,10 +21,11 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="/appoitment" element={<Appoitment />} /> */}
-        <Route path="/carear" element={<Carear />} />
+        <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/service" element={<Service />} />
       </Routes>
+      
       <Footer />
     </BrowserRouter>
   );

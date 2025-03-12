@@ -45,7 +45,7 @@ const Hero = () => {
     };
 
     return (
-        <div className="relative w-full h-screen md:h-[70vh] lg:h-[80vh]">
+        <div className="relative w-full h-screen md:h-[70vh] lg:h-[86.3vh]">
             <div className="absolute inset-0 flex flex-col items-start justify-center px-6 md:px-12 lg:px-24 text-white z-10 space-y-6 bg-transparent">
                 <div className="w-16 mb-10 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] h-[7px]"></div>
                 <h2 className="text-sm md:text-lg lg:text-xl uppercase font-semibold tracking-wide text-white">Total Eye Care Solution</h2>
@@ -72,7 +72,7 @@ const Hero = () => {
                 {images.map((image, index) => (
                     <div 
                         key={index} 
-                        className="w-full h-screen md:h-[70vh] lg:h-[86.5vh] bg-cover bg-center flex items-center justify-center" 
+                        className="w-full h-screen md:h-[70vh] lg:h-[86.3vh] bg-cover bg-center flex items-center justify-center" 
                         style={{ backgroundImage: `url(${image})` }}
                     ></div>
                 ))}
