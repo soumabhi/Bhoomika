@@ -12,7 +12,7 @@ const About = () => {
     </h2>
     <button
       type="button"
-      className="text-gray-900 bg-[#F7BE38] hover:bg-lime-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
+      className="text-gray-900 bg-[#F7BE38] hover:bg-cyan-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
     >
       Book an Appointment
     </button>

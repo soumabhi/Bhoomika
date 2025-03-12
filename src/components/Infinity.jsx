@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 
 const Infinity = () => {
   return (
-    <div className="bg-lime-900 py-3 sm:py-4">
+    <div className="bg-cyan-900 py-3 sm:py-4">
       <Marquee speed={50} gradient={false} className="text-white font-semibold text-base sm:text-lg md:text-xl capitalize">
         👀 Your vision is precious—nurture it with regular care. 💙 &nbsp; 🔆
         Healthy eyes, brighter future! Keep them safe and strong. ✨ &nbsp; 🩺

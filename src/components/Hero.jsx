@@ -21,7 +21,7 @@ const Hero = () => {
 
     const handleMouseLeaveButton = (e) => {
         const button = e.currentTarget;
-        button.style.background = "bg-lime-500";
+        button.style.background = "bg-cyan";
     };
 
     const handleMouseMoveText = (e) => {
