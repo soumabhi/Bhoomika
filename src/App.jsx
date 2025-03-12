@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Ads from "./components/Ads";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/service" element={<Service />} />
       </Routes>
-      
+
       <Footer />
     </BrowserRouter>
   );
