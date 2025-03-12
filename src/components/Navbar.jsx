@@ -17,7 +17,7 @@ const Navbar = () => {
                <a href=""><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>Career</li></a> 
                 <a href="/contact"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-lime-500'>Contact</li></a>
               </ul>
-              <button type="button" class="hidden lg:inline-flex text-gray-900 hover:text-white bg-cyan-400 hover:bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer">
+              <button type="button" class="hidden lg:inline-flex text-gray-900 hover:text-white bg-lime-400 hover:bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer">
                 Book an Appointment
               </button>
             </div>

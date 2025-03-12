@@ -30,16 +30,16 @@ const AboutSection = () => {
           </div>
 
           <div className="flex justify-center flex-col p-6 lg:pl-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-lime-800 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-900 leading-tight">
               Personal Care <br /> & Healthy Sight
             </h2>
-            <p className="text-lg text-lime-700 mt-4 mb-6">
+            <p className="text-lg text-black mt-4 mb-6">
               We provide world-class eye care with precision, expertise, and
               compassion—ensuring clear vision and healthier eyes for life.
             </p>
             <a
               href="/services"
-              className="bg-cyan-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan transition-all flex items-center gap-2 w-fit"
+              className="bg-cyan-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-lime-500 transition-all duration-300 ease-in-out flex items-center gap-2 w-fit"
             >
               Services
               <i className="icofont-simple-right"></i>

@@ -35,7 +35,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-cyan-200 p-8 rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl cursor-pointer"
+              className="bg-[#18abab]/20 p-8 rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl cursor-pointer"
             >
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] rounded-full mb-4 animate-bounce">
                 <i className={`${feature.icon} text-3xl text-white`} />
@@ -43,19 +43,19 @@ const Features = () => {
               <span className="inline-block mb-2 text-sm font-semibold text-white bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] px-3 py-1 rounded-full animate-pulse">
                 {feature.subtitle}
               </span>
-              <h3 className="text-2xl font-bold text-lime-800 mb-4">{feature.title}</h3>
-              {feature.description && <p className="text-lime-900 mb-6 leading-relaxed">{feature.description}</p>}
+              <h3 className="text-2xl font-bold text-cyan-900 mb-4">{feature.title}</h3>
+              {feature.description && <p className="text-black mb-6 leading-relaxed">{feature.description}</p>}
               {feature.schedule && (
                 <ul className="space-y-3 mb-6">
                   {feature.schedule.map((item, i) => (
-                    <li key={i} className="flex justify-between items-center p-3 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] rounded-xl hover:bg-cyan-400 transition-colors">
+                    <li key={i} className="flex justify-between items-center p-3 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] rounded-xl transition-colors">
                       <span className="text-white font-medium">{item.days}</span>
                       <span className="text-white font-semibold">{item.time}</span>
                     </li>
                   ))}
                 </ul>
               )}
-              {feature.phone && <div className="mt-6 text-2xl font-bold text-lime-900 animate-pulse">{feature.phone}</div>}
+              {feature.phone && <div className="mt-6 text-2xl font-bold text-cyan-900 animate-pulse">{feature.phone}</div>}
               {feature.button && (
                 <a 
                   href={feature.link} 
