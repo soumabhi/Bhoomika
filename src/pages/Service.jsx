@@ -83,9 +83,9 @@ const Service = () => {
 
   return (
    <>
-    <div className="container mx-auto px-6 py-12 bg-cyan-50">
+    <div className="container mx-auto px-6 py-12 lg:pb-20 bg-white">
       <h2 onMouseMove={handleMouseMoveText}
-          onMouseLeave={handleMouseLeaveText} className="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-900">Our Services</h2>
+          onMouseLeave={handleMouseLeaveText} className="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-900 uppercase">Our Services</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10">
         {services.map((service, index) => (
           <div
@@ -101,7 +101,7 @@ const Service = () => {
         ))}
       </div>
     </div>
-    <div className="relative w-full h-[500px] bg-cover bg-center mt-8 lg:mt-20" style={{ backgroundImage: `url(${bgimage})` }}>
+    <div className="relative w-full h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${bgimage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start text-center px-4 md:text-start text-white md:px-20 lg:w-2/3">
           <h2 className="lg:text-6xl md:text-5xl text-2xl font-bold mb-6 leading-tight">
@@ -109,7 +109,7 @@ const Service = () => {
           </h2>
           <button
             type="button"
-            className="bg-cyan-700 hover:bg-lime-400 text-white font-medium rounded-lg text-sm px-6 py-3 text-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
+            className="bg-cyan-700 hover:bg-lime-500 text-white hover:text-black font-medium rounded-lg text-sm px-6 py-3 text-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
           >
             Book an Appointment
           </button>

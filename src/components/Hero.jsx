@@ -54,7 +54,9 @@ const Hero = () => {
                     onMouseLeave={handleMouseLeaveText}
                     className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight max-w-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-600 cursor-pointer"
                 >
-                    Since 2009 | Committed To Eye Care
+                    Since 2009 | 
+                    <br />
+                    <span>Committed To Eye Care</span>
                 </h1>
                 <p className="text-base md:text-lg lg:text-xl mt-2 text-white max-w-3xl capitalize font-medium">
                     Delivering expert eyecare with precision and compassion – because your eyes deserve nothing but the best!

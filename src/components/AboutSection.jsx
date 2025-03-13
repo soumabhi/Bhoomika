@@ -5,7 +5,7 @@ import device from '../assets/eyed.jpeg'
 
 const AboutSection = () => {
   return (
-    <section className="w-full min-h-full flex items-center justify-center bg-cyan-50 py-12">
+    <section className="w-full min-h-full flex items-center justify-center bg-white py-12">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
           <div className="flex flex-col gap-6">
@@ -38,7 +38,7 @@ const AboutSection = () => {
               compassion—ensuring clear vision and healthier eyes for life.
             </p>
             <a
-              href="/services"
+              href="/service"
               className="bg-cyan-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-lime-500 transition-all duration-300 ease-in-out flex items-center gap-2 w-fit"
             >
               Services
