@@ -59,7 +59,7 @@ const Features = () => {
               {feature.button && (
                 <a 
                   href={feature.link} 
-                  className="mt-6 inline-flex items-center gap-2 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] text-white px-6 py-3 rounded-full font-semibold hover:bg-cyan-400 transition-all hover:scale-105"
+                  className="mt-6 inline-flex items-center gap-2 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] text-white px-6 py-3 rounded-full font-semibold hover:bg-lime-500 transition-all hover:scale-105"
                 >
                   <span>{feature.button}</span>
                 </a>
