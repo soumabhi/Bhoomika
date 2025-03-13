@@ -31,36 +31,36 @@ const Career = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-5">
-      <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-12">Join Our Team</h1>
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-50 py-12 px-5">
+      <h1 className="text-4xl font-extrabold text-center text-cyan-800 mb-12">Join Our Team</h1>
 
       {loading ? (
-        <p className="text-center text-gray-700">Loading jobs...</p>
+        <p className="text-center text-cyan-700">Loading jobs...</p>
       ) : error ? (
         <p className="text-center text-red-500">{error}</p>
       ) : jobListings.length === 0 ? (
-        <p className="text-center text-gray-500">No job openings available.</p>
+        <p className="text-center text-cyan-600">No job openings available.</p>
       ) : (
         <div className="max-w-6xl mx-auto grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {jobListings.map((job) => (
             <div
               key={job.jobId}
-              className="bg-white shadow-lg hover:shadow-2xl transition duration-300 p-6 rounded-xl border border-gray-200 relative"
+              className="bg-white/70 backdrop-blur-lg shadow-lg hover:shadow-2xl transition duration-300 p-6 rounded-xl border border-white/20 relative"
             >
-              <p className="absolute top-3 right-4 bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full font-semibold">
+              <p className="absolute top-3 right-4 bg-cyan-100 text-cyan-700 text-xs px-3 py-1 rounded-full font-semibold">
                 {job.jobId}
               </p>
 
-              <h2 className="text-2xl font-bold text-gray-800 mb-3">{job.title}</h2>
-              <p className="text-sm text-gray-600">
+              <h2 className="text-2xl font-bold text-cyan-800 mb-3">{job.title}</h2>
+              <p className="text-sm text-cyan-700">
                 <strong>📍 Location:</strong> {job.location}
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-cyan-700">
                 <strong>💼 Job Type:</strong> {job.jobType}
               </p>
-              <p className="text-sm text-gray-700 mt-4">{job.description}</p>
+              <p className="text-sm text-cyan-700 mt-4">{job.description}</p>
 
-              <button className="mt-6 w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded-lg transition duration-300">
+              <button className="mt-6 w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 rounded-lg transition duration-300">
                 Apply Now
               </button>
             </div>

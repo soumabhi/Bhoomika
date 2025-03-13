@@ -83,33 +83,38 @@ const Service = () => {
 
   return (
    <>
-    <div className="container mx-auto px-6 py-12 lg:pb-20 bg-white">
-      <h2 onMouseMove={handleMouseMoveText}
-          onMouseLeave={handleMouseLeaveText} className="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-900 uppercase">Our Services</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:pb-20 bg-white">
+      <h2 
+        onMouseMove={handleMouseMoveText}
+        onMouseLeave={handleMouseLeaveText} 
+        className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-900 uppercase"
+      >
+        Our Services
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
         {services.map((service, index) => (
           <div
             key={index}
-            className={`${service.bgColor} p-8 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out mx-4 h-64 flex flex-col cursor-pointer`}
+            className={`${service.bgColor} p-6 sm:p-8 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out h-64 flex flex-col cursor-pointer`}
           >
-            <div className="flex items-center mb-6">
-              <div className="text-4xl">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-cyan-900 ml-6">{service.name}</h3>
+            <div className="flex items-center mb-4 sm:mb-6">
+              <div className="text-3xl sm:text-4xl">{service.icon}</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-cyan-900 ml-4 sm:ml-6">{service.name}</h3>
             </div>
-            <p className="text-black text-lg leading-relaxed">{service.description}</p>
+            <p className="text-black text-base sm:text-lg leading-relaxed">{service.description}</p>
           </div>
         ))}
       </div>
     </div>
-    <div className="relative w-full h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${bgimage})` }}>
+    <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${bgimage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start text-center px-4 md:text-start text-white md:px-20 lg:w-2/3">
-          <h2 className="lg:text-6xl md:text-5xl text-2xl font-bold mb-6 leading-tight">
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 lg:items-start lg:text-start text-white lg:w-2/3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
             We are pleased to offer you the <span className="text-lime-400">chance to have healthy</span> vision.
           </h2>
           <button
             type="button"
-            className="bg-cyan-700 hover:bg-lime-500 text-white hover:text-black font-medium rounded-lg text-sm px-6 py-3 text-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
+            className="bg-cyan-700 hover:bg-lime-500 text-white hover:text-black font-medium rounded-lg text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 text-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
           >
             Book an Appointment
           </button>
