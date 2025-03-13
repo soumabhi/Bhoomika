@@ -58,7 +58,7 @@ const Contact = () => {
           </div>
 
           {/* Location Card */}
-          <a href="https://maps.app.goo.gl/ZzsX3KUHFFWfDfqH9"><div className="flex flex-col items-center justify-center border-2 border-gray-300 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out">
+          <a href="https://maps.app.goo.gl/R5sbRQBZgn2u5QH68"><div className="flex flex-col items-center justify-center border-2 border-gray-300 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out">
             <div className="text-4xl text-green-500 mb-4">
               <FaMapMarkerAlt />
             </div>

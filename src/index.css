@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+  @keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.wave {
+    animation: wave 10s linear infinite;
+    width: 200%; /* Double the width to allow seamless looping */
+}

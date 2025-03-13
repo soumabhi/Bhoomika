@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start gap-6">
             <img src={bhoomika} alt="Bhoomika Logo" className="h-24 md:h-30" />
             <p className="text-md text-center text-black md:text-left font-medium md:max-w-2/3">
-             <a href="https://maps.app.goo.gl/ZzsX3KUHFFWfDfqH9">Pramod Heights, Near Kesura Chowk, Puri Bypass Road, Bhubaneswar - 752101</a> 
+             <a href="https://maps.app.goo.gl/R5sbRQBZgn2u5QH68">Pramod Heights, Near Kesura Chowk, Puri Bypass Road, Bhubaneswar - 751010</a> 
             </p>
             <div className="flex gap-6 text-gray-700">
               <a href="#" className="transition-transform transform hover:scale-110 hover:text-cyan-600 bg-white p-2 rounded-lg">
@@ -71,8 +71,22 @@ const Footer = () => {
                 
                 <li className="flex items-center gap-2 text-gray-700">
                   <FaPhoneAlt size={18} className="text-lime-300 hover:text-cyan-900" />
-                  <span className="font-semibold text-white hover:text-black">9777050048</span>
-                  <span className="text-sm text-lime-300 hover:text-cyan-900">Mon to Fri: 08:30 am - 06:00 pm</span>
+                  <span className="font-semibold text-white hover:text-black">+91 9777050048</span>
+                  
+                  
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  {/* <FaPhoneAlt size={18} className="text-lime-300 hover:text-cyan-900" /> */}
+                  <li><span className="text-sm text-lime-300 hover:text-cyan-900">MON to SAT: 09:00 am - 08:00 pm</span></li>
+                  
+                  
+                  
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                 
+                  <li><span className="text-sm text-lime-300 hover:text-cyan-900">SUNDAY :09:00 am - 05:00 pm</span></li>
+                  
+                  
                 </li>
               </ul>
             </div>
@@ -85,7 +99,7 @@ const Footer = () => {
       <div className="bg-gray-900 py-4">
         <div className="container mx-auto text-center">
           <p className="text-sm md:text-base text-gray-300 font-medium">
-            © Copyright Reserved to <span className="text-green-500">Bhoomika Eye Hospital Limited</span>
+            © Copyright Reserved to <span className="text-green-500">Bhoomika Healthcare Limited</span>
           </p>
         </div>
       </div>
