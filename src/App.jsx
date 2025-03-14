@@ -10,6 +10,7 @@ import Career from "./pages/Career";
 import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 
+
 const App = () => {
   return (
     <BrowserRouter>

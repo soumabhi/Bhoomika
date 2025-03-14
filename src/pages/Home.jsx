@@ -5,12 +5,14 @@ import Infinity from '../components/Infinity'
 import AboutSection from '../components/AboutSection'
 import Appointment from '../pages/Appoitment'
 import Service from './Service'
+import Doctors from "./MeeTOurDoctors";
 
 const Home = () => {
   return (
     <div>
       <Hero />
       {/* <Infinity/> */}
+      <Doctors/>
       <Features />
       <AboutSection />
       <Service/>
