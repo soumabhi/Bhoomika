@@ -4,7 +4,7 @@ import Features from '../components/Features'
 import Infinity from '../components/Infinity'
 import AboutSection from '../components/AboutSection'
 import Appointment from '../pages/Appoitment'
-import Service from './Service'
+import Services from '../components/Services'
 import OurClients from "../pages/OurClients";
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
       {/* <Infinity/> */}
       <Features />
       <AboutSection />
-      <Service/>
+      <Services/>
       <OurClients/>
       <Appointment />
 
