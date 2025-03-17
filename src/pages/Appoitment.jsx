@@ -12,6 +12,8 @@ const BookAppointment = () => {
     complaints: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,8 +22,21 @@ const BookAppointment = () => {
     });
   };
 
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.patientName.trim()) newErrors.patientName = "Name is required";
+    if (!/^[0-9]{10}$/.test(formData.phoneNumber)) newErrors.phoneNumber = "Invalid phone number";
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:5000/send-sms", {
@@ -50,49 +65,17 @@ const BookAppointment = () => {
     }
   };
 
-  const handleMouseMoveButton = (e) => {
-    const button = e.currentTarget;
-    const rect = button.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    button.style.background = `radial-gradient(circle at ${x}px ${y}px, #00FFFF, #04637B)`;
-  };
-
-  const handleMouseLeaveButton = (e) => {
-    const button = e.currentTarget;
-    button.style.background = "bg-cyan";
-  };
-
   return (
-    <div
-      className="flex flex-col lg:flex-row items-center justify-center min-h-screen p-6 relative overflow-hidden"
-      
-    >
-      
-
-      {/* Image Section */}
+    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen p-6 relative overflow-hidden">
       <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0 relative z-10">
-        <img
-          src={Doctor}
-          alt="Doctor"
-          className="rounded-2xl shadow-lg w-80 sm:w-96 md:w-[400px] lg:w-[450px]"
-        />
+        <img src={Doctor} alt="Doctor" className="rounded-2xl shadow-lg w-80 sm:w-96 md:w-[400px] lg:w-[450px]" />
       </div>
 
-      {/* Form Section */}
       <div className="w-full lg:w-1/2 bg-white bg-opacity-90 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl relative z-10">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-cyan-900 mb-3 text-center lg:text-left">
-          Book Appointment
-        </h2>
-        <p className="text-md sm:text-lg text-gray-600 mb-6 text-center lg:text-left">
-          Get expert eye care with a quick and easy appointment. Your vision
-          matters!
-        </p>
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-cyan-900 mb-3 text-center lg:text-left">Book Appointment</h2>
+        <p className="text-md sm:text-lg text-gray-600 mb-6 text-center lg:text-left">Get expert eye care with a quick and easy appointment. Your vision matters!</p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4"
-        >
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
           <input
             type="text"
             name="patientName"
@@ -101,6 +84,8 @@ const BookAppointment = () => {
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
             required
           />
+          {errors.patientName && <p className="text-red-500 text-sm">{errors.patientName}</p>}
+
           <input
             type="text"
             name="phoneNumber"
@@ -109,6 +94,8 @@ const BookAppointment = () => {
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
             required
           />
+          {errors.phoneNumber && <p className="text-red-500 text-sm">{errors.phoneNumber}</p>}
+
           <input
             type="number"
             name="age"
@@ -117,6 +104,7 @@ const BookAppointment = () => {
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
             required
           />
+
           <select
             name="gender"
             onChange={handleChange}
@@ -128,6 +116,8 @@ const BookAppointment = () => {
             <option value="Female">Female</option>
             <option value="Other">Other</option>
           </select>
+
+          <label className="col-span-1 sm:col-span-2 text-gray-700">Choose your slot date and time:</label>
           <input
             type="date"
             name="date"
@@ -135,6 +125,7 @@ const BookAppointment = () => {
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
             required
           />
+
           <input
             type="time"
             name="time"
@@ -142,6 +133,7 @@ const BookAppointment = () => {
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
             required
           />
+
           <textarea
             name="complaints"
             placeholder="Chief Complaints"
@@ -151,8 +143,6 @@ const BookAppointment = () => {
           ></textarea>
 
           <button
-            onMouseMove={handleMouseMoveButton}
-            onMouseLeave={handleMouseLeaveButton}
             type="submit"
             className="col-span-1 sm:col-span-2 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] text-white p-3 rounded-lg transition-all duration-300 ease-in-out shadow-md font-medium cursor-pointer"
           >
