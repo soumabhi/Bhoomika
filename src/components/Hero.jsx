@@ -265,6 +265,7 @@ import check from "../assets/check.jpeg";
 import eyed from "../assets/eyed.jpeg";
 import device from "../assets/device.jpeg";
 import eyec from "../assets/eyec.jpeg";
+import ScrollReveal from "scrollreveal";
 
 const Hero = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -272,6 +273,16 @@ const Hero = () => {
     useEffect(() => {
         setIsVisible(true);
     }, []);
+
+    useEffect(() => {
+        ScrollReveal().reveal(".fade-in", {
+          opacity: 0,      
+          duration: 1000,  
+          delay: 500,        
+          easing: "ease-in-out",
+          reset: true,      
+        });
+      }, []);
 
     const images = [img, man, check, device, eyed, eyec];
 
@@ -298,7 +309,7 @@ const Hero = () => {
     };
 
     return (
-        <div className="relative overflow-hidden bg-cyan-900 min-h-[86vh]">
+        <div className="reveal relative overflow-hidden bg-cyan-900 min-h-[86vh]">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-800 rounded-full filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>

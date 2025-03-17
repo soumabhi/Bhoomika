@@ -24,6 +24,7 @@
     "react-router-dom": "^7.3.0",
     "react-slick": "^0.30.3",
     "react-slideshow-image": "^4.3.2",
+    "scrollreveal": "^4.0.9",
     "slick-carousel": "^1.8.1",
     "tailwindcss": "^4.0.12"
   },
