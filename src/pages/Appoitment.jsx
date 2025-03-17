@@ -20,28 +20,58 @@ const BookAppointment = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    try {
+      const response = await fetch("http://localhost:5000/send-sms", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          patientName: formData.patientName,
+          phoneNumber: formData.phoneNumber,
+          date: formData.date,
+          time: formData.time,
+        }),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("Appointment booked successfully! You will receive an SMS confirmation.");
+        console.log("Form Data:", formData);
+      } else {
+        alert(result.message || "Failed to send SMS. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   const handleMouseMoveButton = (e) => {
-      const button = e.currentTarget;
-      const rect = button.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      button.style.background = `radial-gradient(circle at ${x}px ${y}px, #00FFFF, #04637B)`;
+    const button = e.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    button.style.background = `radial-gradient(circle at ${x}px ${y}px, #00FFFF, #04637B)`;
   };
 
   const handleMouseLeaveButton = (e) => {
-      const button = e.currentTarget;
-      button.style.background = "bg-cyan";
+    const button = e.currentTarget;
+    button.style.background = "bg-cyan";
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen bg-white p-6">
+    <div
+      className="flex flex-col lg:flex-row items-center justify-center min-h-screen p-6 relative overflow-hidden"
+      
+    >
+      
+
       {/* Image Section */}
-      <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0">
+      <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0 relative z-10">
         <img
           src={Doctor}
           alt="Doctor"
@@ -50,7 +80,7 @@ const BookAppointment = () => {
       </div>
 
       {/* Form Section */}
-      <div className="w-full lg:w-1/2 bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-xl">
+      <div className="w-full lg:w-1/2 bg-white bg-opacity-90 p-6 sm:p-8 md:p-10 rounded-lg shadow-xl relative z-10">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-cyan-900 mb-3 text-center lg:text-left">
           Book Appointment
         </h2>
@@ -69,6 +99,7 @@ const BookAppointment = () => {
             placeholder="Full Name"
             onChange={handleChange}
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            required
           />
           <input
             type="text"
@@ -76,6 +107,7 @@ const BookAppointment = () => {
             placeholder="Phone Number"
             onChange={handleChange}
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            required
           />
           <input
             type="number"
@@ -83,11 +115,13 @@ const BookAppointment = () => {
             placeholder="Age"
             onChange={handleChange}
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            required
           />
           <select
             name="gender"
             onChange={handleChange}
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            required
           >
             <option value="">Gender</option>
             <option value="Male">Male</option>
@@ -99,18 +133,21 @@ const BookAppointment = () => {
             name="date"
             onChange={handleChange}
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            required
           />
           <input
             type="time"
             name="time"
             onChange={handleChange}
             className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            required
           />
           <textarea
             name="complaints"
             placeholder="Chief Complaints"
             onChange={handleChange}
             className="col-span-1 sm:col-span-2 p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
+            required
           ></textarea>
 
           <button

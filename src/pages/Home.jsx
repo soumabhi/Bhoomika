@@ -6,6 +6,7 @@ import AboutSection from '../components/AboutSection'
 import Appointment from '../pages/Appoitment'
 import Service from './Service'
 import Doctors from "./MeeTOurDoctors";
+import OurClients from "../pages/OurClients";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Features />
       <AboutSection />
       <Service/>
+      <OurClients/>
       <Appointment />
 
     </div>
