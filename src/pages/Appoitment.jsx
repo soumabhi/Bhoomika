@@ -6,6 +6,7 @@ const BookAppointment = () => {
   const [formData, setFormData] = useState({
     patientName: "",
     phoneNumber: "",
+    email: "",
     age: "",
     gender: "",
     date: "",
@@ -25,8 +26,11 @@ const BookAppointment = () => {
 
   const validate = () => {
     const newErrors = {};
+
     if (!formData.patientName.trim()) newErrors.patientName = "Name is required";
     if (!/^[0-9]{10}$/.test(formData.phoneNumber)) newErrors.phoneNumber = "Invalid phone number";
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)) newErrors.email = "Invalid email address";
+
     return newErrors;
   };
 
@@ -40,25 +44,19 @@ const BookAppointment = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/send-sms", {
+      const response = await fetch("http://localhost:5000/api/appointment/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          patientName: formData.patientName,
-          phoneNumber: formData.phoneNumber,
-          date: formData.date,
-          time: formData.time,
-        }),
+        body: JSON.stringify(formData),
       });
 
       const result = await response.json();
       if (response.ok) {
-        alert("Appointment booked successfully! You will receive an SMS confirmation.");
-        console.log("Form Data:", formData);
+        alert("Appointment booked successfully! You will receive an email confirmation.");
       } else {
-        alert(result.message || "Failed to send SMS. Please try again.");
+        alert(result.message || "Failed to send email. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
@@ -89,41 +87,18 @@ const BookAppointment = () => {
         <p className="text-md sm:text-lg text-gray-600 mb-6 text-center lg:text-left">Get expert eye care with a quick and easy appointment. Your vision matters!</p>
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
-          <input
-            type="text"
-            name="patientName"
-            placeholder="Full Name"
-            onChange={handleChange}
-            className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-            required
-          />
+          <input type="text" name="patientName" placeholder="Full Name" onChange={handleChange} className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" required />
           {errors.patientName && <p className="text-red-500 text-sm">{errors.patientName}</p>}
 
-          <input
-            type="text"
-            name="phoneNumber"
-            placeholder="Phone Number"
-            onChange={handleChange}
-            className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-            required
-          />
+          <input type="text" name="phoneNumber" placeholder="Phone Number" onChange={handleChange} className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" required />
           {errors.phoneNumber && <p className="text-red-500 text-sm">{errors.phoneNumber}</p>}
 
-          <input
-            type="number"
-            name="age"
-            placeholder="Age"
-            onChange={handleChange}
-            className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-            required
-          />
+          <input type="email" name="email" placeholder="Email Address" onChange={handleChange} className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" required />
+          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
 
-          <select
-            name="gender"
-            onChange={handleChange}
-            className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-            required
-          >
+          <input type="number" name="age" placeholder="Age" onChange={handleChange} className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" required />
+
+          <select name="gender" onChange={handleChange} className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" required>
             <option value="">Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -131,34 +106,13 @@ const BookAppointment = () => {
           </select>
 
           <label className="col-span-1 sm:col-span-2 text-gray-700">Choose your slot date and time:</label>
-          <input
-            type="date"
-            name="date"
-            onChange={handleChange}
-            className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-            required
-          />
+          <input type="date" name="date" onChange={handleChange} className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none w-full" placeholder="Choose your date" required />
 
-          <input
-            type="time"
-            name="time"
-            onChange={handleChange}
-            className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-            required
-          />
+          <input type="time" name="time" onChange={handleChange} className="p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none w-full" placeholder="Choose your time" required />
 
-          <textarea
-            name="complaints"
-            placeholder="Chief Complaints"
-            onChange={handleChange}
-            className="col-span-1 sm:col-span-2 p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none"
-            required
-          ></textarea>
+          <textarea name="complaints" placeholder="Chief Complaints" onChange={handleChange} className="col-span-1 sm:col-span-2 p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:outline-none" required></textarea>
 
-          <button
-            type="submit"
-            className="col-span-1 sm:col-span-2 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] text-white p-3 rounded-lg transition-all duration-300 ease-in-out shadow-md font-medium cursor-pointer"
-          >
+          <button type="submit" className="col-span-1 sm:col-span-2 bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] text-white p-3 rounded-lg transition-all duration-300 ease-in-out shadow-md font-medium cursor-pointer">
             Make Appointment ➜
           </button>
         </form>
