@@ -1,4 +1,6 @@
 import 'icofont/dist/icofont.min.css';
+import React, {useEffect} from 'react';
+import ScrollReveal from 'scrollreveal';
 
 const Features = () => {
   const features = [
@@ -28,9 +30,21 @@ const Features = () => {
     }
   ];
 
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal", {
+      distance: "30px",
+      origin: "bottom",
+      opacity: 0,
+      duration: 1000,  
+      delay: 200,      
+      easing: "ease-in-out",
+      reset: true,   
+    });
+  }, []);
+
   return (
     <section className="relative py-20 bg-cyan-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div 

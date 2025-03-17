@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useEffect} from "react";
+import ScrollReveal from "scrollreveal";
 import { motion } from "framer-motion";
 
 const logos = [
@@ -14,8 +15,21 @@ const logos = [
 ];
 
 const InfiniteMarquee = () => {
+
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal", {
+      distance: "30px",
+      origin: "bottom",
+      opacity: 0,
+      duration: 1000,  
+      delay: 200,      
+      easing: "ease-in-out",
+      reset: true,   
+    });
+  }, []);
+
   return (
-    <div className="bg-white text-dark py-12 overflow-hidden">
+    <div className="bg-white reveal text-dark py-12 overflow-hidden">
     <h2 
         className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-900 uppercase"
       >

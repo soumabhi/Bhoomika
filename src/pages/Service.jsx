@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{useEffect} from 'react';
+import ScrollReveal from 'scrollreveal';
 import { FaStethoscope, FaSyringe, FaChild, FaGlasses, FaHeartbeat, FaEye, FaUsers, FaClinicMedical } from 'react-icons/fa';
 import bgimage from '../assets/man.jpeg';
 
@@ -81,6 +82,18 @@ const Service = () => {
       text.style.color = "transparent";
   };
 
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal", {
+      distance: "30px",
+      origin: "bottom",
+      opacity: 0,
+      duration: 1000,  
+      delay: 200,      
+      easing: "ease-in-out",
+      reset: true,   
+    });
+  }, []);
+
   return (
    <>
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:pb-20 bg-white">
@@ -95,7 +108,7 @@ const Service = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className={`${service.bgColor} p-6 sm:p-8 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out h-64 flex flex-col cursor-pointer`}
+            className={`${service.bgColor} reveal p-6 sm:p-8 rounded-xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out h-64 flex flex-col cursor-pointer`}
           >
             <div className="flex items-center mb-4 sm:mb-6">
               <div className="text-3xl sm:text-4xl">{service.icon}</div>
@@ -106,7 +119,7 @@ const Service = () => {
         ))}
       </div>
     </div>
-    <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${bgimage})` }}>
+    <div className="reveal relative w-full h-[300px] sm:h-[400px] lg:h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${bgimage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 lg:items-start lg:text-start text-white lg:w-2/3">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ScrollReveal from "scrollreveal";
 import Doctor from "../assets/eyeins.jpg";
 
 const BookAppointment = () => {
@@ -65,8 +66,20 @@ const BookAppointment = () => {
     }
   };
 
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal", {
+      distance: "30px",
+      origin: "bottom",
+      opacity: 0,
+      duration: 1000,  
+      delay: 200,      
+      easing: "ease-in-out",
+      reset: true,   
+    });
+  }, []);
+
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen p-6 relative overflow-hidden">
+    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen p-6 relative overflow-hidden reveal">
       <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0 relative z-10">
         <img src={Doctor} alt="Doctor" className="rounded-2xl shadow-lg w-80 sm:w-96 md:w-[400px] lg:w-[450px]" />
       </div>

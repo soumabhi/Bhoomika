@@ -65,6 +65,8 @@ const EyeSpecialistCarousel = () => {
 
   useEffect(() => {
     ScrollReveal().reveal(".reveal", {
+      distance: "30px",
+      origin: "bottom",
       opacity: 0,
       duration: 1000,  
       delay: 200,      
@@ -75,7 +77,7 @@ const EyeSpecialistCarousel = () => {
 
   return (
     <div className="relative max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center text-teal-700 mb-8">Eye Checkup Specialist</h1>
+      <h1 className="text-3xl reveal font-bold text-center text-teal-700 mb-8">Eye Checkup Specialist</h1>
 
       <div className="relative overflow-hidden">
         {/* Previous Button */}
@@ -87,7 +89,7 @@ const EyeSpecialistCarousel = () => {
         </button>
 
         {/* Carousel Container */}
-        <div className="flex justify-center overflow-hidden">
+        <div className="flex justify-center overflow-hidden reveal">
           {isMobile ? (
             // Mobile: Show one slide at a time with scrolling effect
             <div

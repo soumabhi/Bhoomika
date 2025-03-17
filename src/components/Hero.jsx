@@ -276,6 +276,8 @@ const Hero = () => {
 
     useEffect(() => {
         ScrollReveal().reveal(".reveal", {
+          distance: "30px",
+          origin: "bottom",
           opacity: 0,
           duration: 1000,  
           delay: 200,      
@@ -309,7 +311,7 @@ const Hero = () => {
     };
 
     return (
-        <div className="reveal relative overflow-hidden bg-cyan-900 min-h-[86vh]">
+        <div className="relative overflow-hidden bg-cyan-900 min-h-[86vh]">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-800 rounded-full filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
@@ -319,7 +321,7 @@ const Hero = () => {
             <div className="container mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
                     {/* Left Section - Text Content */}
-                    <div className={`w-full lg:w-1/2 space-y-4 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+                    <div className={`reveal w-full lg:w-1/2 space-y-4 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
                         <div className="w-20 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full mb-2"></div>
 
                         <h2 className="text-cyan-400 text-lg md:text-xl font-medium tracking-wide">
@@ -374,7 +376,7 @@ const Hero = () => {
                     </div>
 
                     {/* Right Section - Image Slider */}
-                    <div className={`w-full lg:w-1/2 relative transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+                    <div className={`reveal w-full lg:w-1/2 relative transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                             <div className="aspect-[4/5] md:aspect-[16/13] lg:aspect-[4/3] w-full max-w-lg mx-auto bg-gradient-to-br from-cyan-800 to-blue-900">
                                 {/* Decorative elements */}

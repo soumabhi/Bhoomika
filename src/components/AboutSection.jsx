@@ -1,12 +1,26 @@
-import React from "react";
+import React,{useEffect} from "react";
+import ScrollReveal from "scrollreveal";
 import man from '../assets/man.jpeg'
 import img from '../assets/check.jpeg'
 import device from '../assets/eyed.jpeg'
 
 const AboutSection = () => {
+
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal", {
+      distance: "30px",
+      origin: "bottom",
+      opacity: 0,
+      duration: 1000,  
+      delay: 200,      
+      easing: "ease-in-out",
+      reset: true,   
+    });
+  }, []);
+  
   return (
     <section className="w-full min-h-full flex items-center justify-center bg-white py-12">
-      <div className="container mx-auto px-6 lg:px-16">
+      <div className="container reveal mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
           <div className="flex flex-col gap-6">
             <img
