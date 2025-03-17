@@ -2,7 +2,7 @@ import React from 'react';
 
 const Ads = () => {
   return (
-    <div className="w-full h-[4vh] bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 flex items-center shadow-lg">
+    <div className="hidden sm:flex w-full h-[4vh] bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 items-center shadow-lg">
       {/* Container */}
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Content */}

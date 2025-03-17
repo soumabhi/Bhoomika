@@ -20,7 +20,7 @@ const Navbar = () => {
               <a href="/"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-cyan-500'>Home</li></a>
               <a href="/about"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-cyan-500'>About</li></a>
               <a href="/service"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-cyan-500'>Services</li></a>
-              <a href=""><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-cyan-500'>Blogs</li></a>
+              <a href="/blogs"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-cyan-500'>Blogs</li></a>
               <a href="/career"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-cyan-500'>Career</li></a>
               <a href="/contact"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-120 transition-all duration-300 ease-in-out hover:text-cyan-500'>Contact</li></a>
             </ul>

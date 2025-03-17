@@ -9,6 +9,9 @@ import Appoitment from "./pages/Appoitment";
 import Career from "./pages/Career";
 import Contact from "./pages/Contact";
 import Service from "./pages/Service";
+import LoginComponent from "../AuthScreen/LogIn";
+import SignupComponent from "../AuthScreen/SignUp";
+import BlogPage from "./pages/Blog";
 
 
 const App = () => {
@@ -25,6 +28,10 @@ const App = () => {
         <Route path="/career" element={<Career />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/login" element={<LoginComponent/>} />
+        <Route path="/signup" element={<SignupComponent/>} />
+        <Route path="/blogs" element={<BlogPage/>} />
+        
       </Routes>
 
       <Footer />
