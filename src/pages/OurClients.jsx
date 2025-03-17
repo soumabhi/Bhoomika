@@ -1,6 +1,6 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import ScrollReveal from "scrollreveal";
-import { motion } from "framer-motion";
+import Marquee from "react-fast-marquee";
 
 const logos = [
   "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
@@ -11,47 +11,41 @@ const logos = [
   "https://upload.wikimedia.org/wikipedia/commons/2/29/Samsung_logo.svg",
   "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
   "https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg",
-  
 ];
 
 const InfiniteMarquee = () => {
-
   useEffect(() => {
     ScrollReveal().reveal(".reveal", {
       distance: "30px",
       origin: "bottom",
       opacity: 0,
-      duration: 1000,  
-      delay: 200,      
+      duration: 1000,
+      delay: 200,
       easing: "ease-in-out",
-      reset: true,   
+      reset: true,
     });
   }, []);
 
   return (
-    <div className="bg-white reveal text-dark py-12 overflow-hidden">
-    <h2 
-        className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 lg:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-900 uppercase"
-      >
-       Our Clients & Partners
+    <div className="bg-white reveal py-8 sm:py-12 lg:py-14 overflow-hidden">
+      {/* Title */}
+      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 lg:mb-10 text-transparent bg-clip-text bg-gradient-to-r from-[#04637B] via-cyan-500 to-cyan-900 uppercase">
+        Our Clients & Partners
       </h2>
-      <div className="relative flex w-full overflow-hidden">
-        <motion.div
-          className="flex space-x-10"
-          animate={{ x: ["0%", "-100%"] }}
-          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          style={{ display: "flex", whiteSpace: "nowrap" }}
-        >
+
+      {/* Marquee Wrapper */}
+      <div className="relative w-full">
+        <Marquee speed={40} gradient={false} className="flex space-x-6">
           {[...logos, ...logos].map((logo, index) => (
             <img
               key={index}
               src={logo}
               alt="Company Logo"
-              className="w-28 h-auto opacity-80 hover:opacity-100 transition-all drop-shadow-lg"
+              className="h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 object-contain opacity-80 hover:opacity-100 transition-all drop-shadow-md mx-3"
               onError={(e) => (e.target.style.display = "none")} // Hide broken images
             />
           ))}
-        </motion.div>
+        </Marquee>
       </div>
     </div>
   );
