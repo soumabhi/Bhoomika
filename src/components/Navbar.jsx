@@ -45,7 +45,7 @@ const Navbar = () => {
             <a href="/"><li className='cursor-pointer hover:text-cyan-600 transition-all duration-300 ease-in-out'>Home</li></a>
             <a href="/about"><li className='cursor-pointer hover:text-cyan-600 transition-all duration-300 ease-in-out'>About</li></a>
             <a href="/service"><li className='cursor-pointer hover:text-cyan-600 transition-all duration-300 ease-in-out'>Services</li></a>
-            <a href=""><li className='cursor-pointer hover:text-cyan-600 transition-all duration-300 ease-in-out'>Blogs</li></a>
+            <a href="/blogs"><li className='cursor-pointer hover:text-cyan-600 transition-all duration-300 ease-in-out'>Blogs</li></a>
             <a href="/career"><li className='cursor-pointer hover:text-cyan-600 transition-all duration-300 ease-in-out'>Career</li></a>
             <a href="/contact"><li className='cursor-pointer hover:text-cyan-600 transition-all duration-300 ease-in-out'>Contact</li></a>
           </ul>
