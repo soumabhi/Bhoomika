@@ -130,8 +130,10 @@ const Service = () => {
             className="bg-cyan-700 hover:bg-lime-500 text-white hover:text-black font-medium rounded-lg text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 text-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
           >
             Book an Appointment
+          
           </button>
         </div>
+        
       </div>
     </>
   );

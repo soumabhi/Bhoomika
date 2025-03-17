@@ -13,6 +13,7 @@ import LoginComponent from "../AuthScreen/LogIn";
 import SignupComponent from "../AuthScreen/SignUp";
 import BlogPage from "./pages/Blog";
 import AppointBtn from "./pages/AppointButton"
+import Appointment from "./pages/Appoitment";
 
 
 const App = () => {
@@ -33,6 +34,8 @@ const App = () => {
         <Route path="/login" element={<LoginComponent/>} />
         <Route path="/signup" element={<SignupComponent/>} />
         <Route path="/blogs" element={<BlogPage/>} />
+        <Route path="/appointment" element={<Appointment/>} />
+        
         
       </Routes>
 
