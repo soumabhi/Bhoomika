@@ -275,12 +275,12 @@ const Hero = () => {
     }, []);
 
     useEffect(() => {
-        ScrollReveal().reveal(".fade-in", {
-          opacity: 0,      
+        ScrollReveal().reveal(".reveal", {
+          opacity: 0,
           duration: 1000,  
-          delay: 500,        
+          delay: 200,      
           easing: "ease-in-out",
-          reset: true,      
+          reset: true,   
         });
       }, []);
 

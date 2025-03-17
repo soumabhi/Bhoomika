@@ -4,6 +4,7 @@ import doctor2 from "../assets/eyeins.jpg";
 import doctor3 from "../assets/img.png";
 import doctor4 from "../assets/man.jpeg";
 import { ChevronLeft, ChevronRight, Share2, Twitter, Linkedin } from "lucide-react";
+import ScrollReveal from "scrollreveal";
 
 const EyeSpecialistCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,6 +62,16 @@ const EyeSpecialistCarousel = () => {
       alert("Sharing is not supported on this device.");
     }
   };
+
+  useEffect(() => {
+    ScrollReveal().reveal(".reveal", {
+      opacity: 0,
+      duration: 1000,  
+      delay: 200,      
+      easing: "ease-in-out",
+      reset: true,   
+    });
+  }, []);
 
   return (
     <div className="relative max-w-7xl mx-auto px-4 py-8">
