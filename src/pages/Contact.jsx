@@ -66,7 +66,7 @@ const Contact = () => {
           </div>
 
           {/* Location Card */}
-          <a href="https://maps.app.goo.gl/R5sbRQBZgn2u5QH68" className="block">
+          <a target="_blank" href="https://maps.app.goo.gl/R5sbRQBZgn2u5QH68" className="block">
             <div className="flex flex-col items-center justify-center bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-b-4 border-cyan-500 h-full">
               <div className="text-3xl text-cyan-600 mb-4 bg-cyan-100 p-4 rounded-full">
                 <FaMapMarkerAlt />
@@ -174,10 +174,10 @@ const Contact = () => {
               <div 
                 className="md:w-2/5 bg-cover bg-center hidden md:block"
                 style={{
-                  backgroundImage: `linear-gradient(rgba(8, 145, 178, 0.8), rgba(8, 145, 178, 0.8)), url(${bgimage})`,
+                  backgroundImage: `url(${bgimage})`,
                 }}
               >
-                <div className="h-full flex flex-col justify-center items-start p-8 text-white">
+                {/* <div className="h-full flex flex-col justify-center items-start p-8 text-white">
                   <h3 className="text-2xl font-bold mb-6">Our Office</h3>
                   <div className="space-y-6">
                     <div className="flex items-center">
@@ -193,7 +193,7 @@ const Contact = () => {
                       <span>info@bhoomikeinstitute.com</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

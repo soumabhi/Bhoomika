@@ -389,7 +389,7 @@ const Hero = () => {
                                         <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-r from-cyan-600 to-blue-600 flex items-center justify-center">
                                             <div className="text-white font-bold leading-none text-center">
                                                 <div className="text-xs">SINCE</div>
-                                                <div className="text-lg">2009</div>
+                                                <div className="text-xs">2009</div>
                                             </div>
                                         </div>
                                     </div>
