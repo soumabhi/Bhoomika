@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import bgimage from '../assets/man.jpeg';
+import eyeview from '../assets/eyeview.jpg';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +35,10 @@ const Contact = () => {
       {/* Hero Section with Background */}
       <div className="relative overflow-hidden bg-cyan-800 text-white">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-700 to-cyan-900 opacity-90"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0')] bg-cover bg-center opacity-20"></div>
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${eyeview})` }}
+        ></div>
         
         <div className="container mx-auto px-4 py-28 relative z-10 text-center">
           <h2 className="inline-block text-sm font-bold uppercase tracking-wider text-cyan-200 mb-4 px-3 py-1 border border-cyan-400 rounded-full">CONTACT US</h2>
