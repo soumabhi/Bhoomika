@@ -12,12 +12,14 @@ import Service from "./pages/Service";
 import LoginComponent from "../AuthScreen/LogIn";
 import SignupComponent from "../AuthScreen/SignUp";
 import BlogPage from "./pages/Blog";
+import AppointBtn from "./pages/AppointButton"
 
 
 const App = () => {
   return (
     <BrowserRouter>
       {/* Ads and Navbar should appear on all routes */}
+      <AppointBtn/>
       <Ads />
       <Navbar />
 
