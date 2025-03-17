@@ -319,7 +319,7 @@ const Hero = () => {
                             <span className="inline-block">
                                 <span className="relative">
                                     <span className="relative z-10">Vision</span>
-                                    <span className="absolute bottom-1 left-0 w-full h-2 bg-cyan-500/50 z-0"></span>
+                                    {/* <span className="absolute bottom-1 left-0 w-full h-2 bg-cyan-500/50 z-0"></span> */}
                                 </span>
                             </span>
                             <br />
@@ -416,11 +416,11 @@ const Hero = () => {
                                 </div>
 
                                 {/* Side accent */}
-                                <div className="absolute top-0 bottom-0 right-0 flex h-full">
+                                {/* <div className="absolute top-0 bottom-0 right-0 flex h-full">
                                     <div className="w-2 bg-cyan-500"></div>
                                     <div className="w-2 bg-cyan-400"></div>
                                     <div className="w-2 bg-cyan-300"></div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

@@ -48,7 +48,7 @@ const Ads = () => {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            <p className="font-medium truncate">123 Eye Care Street, Mumbai, India</p>
+            <p className="font-medium truncate">Pramod Heights, Near Kesura, Bhubaneswar</p>
           </div>
 
           {/* Right Section - Phone */}
