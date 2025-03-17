@@ -347,13 +347,13 @@ const Hero = () => {
 
                         <div className="flex flex-col sm:flex-row gap-3 mt-6">
                             <button
-                                className="relative overflow-hidden group bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-lg sm:rounded-full flex items-center justify-center gap-2 shadow-lg shadow-cyan-400/20 transform transition-all duration-300 hover:scale-105"
-                                onMouseMove={handleMouseMoveButton}
-                                onMouseLeave={handleMouseLeaveButton}
+                                className="relative overflow-hidden group bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-lg sm:rounded-full flex items-center justify-center gap-2 shadow-lg shadow-cyan-400/20 transform transition-all duration-300 hover:scale-105 cursor-pointer"
+                                // onMouseMove={handleMouseMoveButton}
+                                // onMouseLeave={handleMouseLeaveButton}
                             >
                                 <span className="relative z-10 font-semibold tracking-wide text-sm">{heroContent.buttonText}</span>
                                 <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                                <span className="absolute inset-0 bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                                <span className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                             </button>
 
                             <button className="bg-transparent text-cyan-100 border-2 border-cyan-400 px-6 py-3 rounded-lg sm:rounded-full flex items-center justify-center gap-2 hover:bg-cyan-400/10 transform transition-all duration-300 hover:scale-105 shadow-md font-semibold tracking-wide text-sm">
