@@ -5,7 +5,6 @@ import Infinity from '../components/Infinity'
 import AboutSection from '../components/AboutSection'
 import Appointment from '../pages/Appoitment'
 import Service from './Service'
-import Doctors from "./MeeTOurDoctors";
 import OurClients from "../pages/OurClients";
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
     <div>
       <Hero />
       {/* <Infinity/> */}
-      <Doctors/>
       <Features />
       <AboutSection />
       <Service/>

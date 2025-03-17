@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import ScrollReveal from 'scrollreveal';
 import { FaStethoscope, FaSyringe, FaChild, FaGlasses, FaHeartbeat, FaEye, FaUsers, FaClinicMedical } from 'react-icons/fa';
 import bgimage from '../assets/man.jpeg';
+import Doctors from "./MeeTOurDoctors";
 
 const services = [
   {
@@ -135,6 +136,7 @@ const Service = () => {
         </div>
         
       </div>
+      <Doctors/>
     </>
   );
 };
