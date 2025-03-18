@@ -123,7 +123,7 @@ const Services = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 lg:items-start lg:text-start text-white lg:w-2/3">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-            We are pleased to offer you the <br></br><span className="text-lime-400">chance to have healthy</span><br></br> vision.
+          Our <span className="text-lime-400">goal</span> is to help you achieve <br></br><span className="text-lime-400">long-term healthy vision</span><br></br> with expert care.
           </h2>
           <a href="/service">
           <button

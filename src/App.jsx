@@ -14,6 +14,7 @@ import SignupComponent from "../AuthScreen/SignUp";
 import BlogPage from "./pages/Blog";
 import AppointBtn from "./pages/AppointButton"
 import Appointment from "./pages/Appoitment";
+import Fellowship from "./pages/Fellowship";
 
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/signup" element={<SignupComponent/>} />
         <Route path="/blogs" element={<BlogPage/>} />
         <Route path="/appointment" element={<Appointment/>} />
+        <Route path="/fellowship" element={<Fellowship/>} />
         
         
       </Routes>

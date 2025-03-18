@@ -33,8 +33,8 @@ const Hero = () => {
     const images = [img, man, check, device, eyed, eyec];
 
     const heroContent = {
-        tagline: "Premium Eye Care Solution",
-        title: "Vision Excellence Since 2009",
+        tagline: "Comprehensive Eye Care Solution",
+        title: "Since 2009 | Committed to eyecare",
         description: "Delivering expert Eyecare with precision and compassion—because your eyes deserve nothing but the best!",
         buttonText: "BOOK AN APPOINTMENT",
         secondaryButtonText: "OUR SERVICES"
@@ -81,16 +81,16 @@ const Hero = () => {
                             {heroContent.tagline}
                         </h2>
 
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-7 mt-7">
                             <span className="inline-block">
                                 <span className="relative">
-                                    <span className="relative z-10">Vision</span>
+                                    <span className="relative z-10">Since 2009 |</span>
                                 </span>
                             </span>
                             <br />
-                            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 inline-block text-transparent bg-clip-text">Excellence</span>
-                            <br />
-                            <span>Since 2009</span>
+                            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 inline-block text-transparent bg-clip-text">Committed</span>
+
+                            <span> to eyecare.</span>
                         </h1>
 
                         <p className="text-cyan-100 text-sm md:text-base max-w-xl mt-4 leading-relaxed">
@@ -102,7 +102,7 @@ const Hero = () => {
                                 className="relative overflow-hidden group bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-lg sm:rounded-full flex items-center justify-center gap-2 shadow-lg shadow-cyan-400/20 transform transition-all duration-300 hover:scale-105 cursor-pointer"
                                 // onMouseMove={handleMouseMoveButton}
                                 // onMouseLeave={handleMouseLeaveButton}
-                                // onClick={handleAppointmentClick} // Add onClick handler
+                                onClick={handleAppointmentClick} // Add onClick handler
                             >
                                 <span className="relative z-10 font-semibold tracking-wide text-sm">{heroContent.buttonText}</span>
                                 <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -126,7 +126,7 @@ const Hero = () => {
                                 ))}
                             </div>
                             <div className="text-cyan-100">
-                                <span className="font-semibold text-cyan-400">500+</span> Successful eye surgeries each month
+                                <span className="font-semibold text-cyan-400">1 Lakh +</span> Eye surgeries so far
                             </div>
                         </div>
                     </div>
@@ -180,7 +180,7 @@ const Hero = () => {
                                     <h3 className="text-xl sm:text-2xl font-bold">Advanced Eye Care</h3>
                                     <p className="text-xs sm:text-sm uppercase tracking-wider mt-1 flex items-center gap-2">
                                         <span className="w-4 h-0.5 bg-cyan-300"></span>
-                                        <span>Professional Solutions</span>
+                                        <span>State of the Art facilities</span>
                                     </p>
                                 </div>
                             </div>

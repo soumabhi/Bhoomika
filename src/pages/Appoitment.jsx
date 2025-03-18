@@ -174,7 +174,7 @@ const BookAppointment = () => {
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen p-6 relative overflow-hidden reveal">
+    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen p-6 relative overflow-hidden reveal bg-cyan-50">
       <div className="w-full lg:w-1/2 flex justify-center mb-6 lg:mb-0 relative z-10">
         <img src={Doctor} alt="Doctor" className="rounded-2xl shadow-lg w-80 sm:w-96 md:w-[400px] lg:w-[450px]" />
       </div>

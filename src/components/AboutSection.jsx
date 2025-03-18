@@ -45,7 +45,7 @@ const AboutSection = () => {
 
           <div className="flex justify-center flex-col p-6 lg:pl-12">
             <h2 className="text-3xl md:text-4xl font-bold text-cyan-900 leading-tight">
-              Personal Care <br /> & Healthy Sight
+            Your Vision, <br />  Our Priority
             </h2>
             <p className="text-lg text-black mt-4 mb-6">
               We provide world-class eye care with precision, expertise, and

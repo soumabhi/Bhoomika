@@ -6,7 +6,7 @@ const Features = () => {
   const features = [
     {
       icon: 'icofont-surgeon-alt',
-      title: 'Instant Booking',
+      title: 'Schedule An Appointment',
       subtitle: '24/7 Availability',
       description: 'Seamless eye care scheduling from anywhere, anytime. Your vision deserves immediate attention.',
       button: 'Book Now',
@@ -15,7 +15,7 @@ const Features = () => {
     {
       icon: 'icofont-ui-clock',
       title: 'Clinic Hours',
-      subtitle: 'Visit Us Anytime',
+      subtitle: 'Visiting Hours',
       schedule: [
         { days: 'Mon-Sat', time: '9:00 am - 8:00 pm' },
         { days: 'Sun', time: '9:00 am - 5:00 pm' }
@@ -23,7 +23,7 @@ const Features = () => {
     },
     {
       icon: 'icofont-support',
-      title: 'Emergency Care',
+      title: 'Critical Eye Emergency',
       subtitle: 'Immediate Assistance',
       description: 'Critical eye emergencies? Call our hotline for priority care. Vision preservation is our top priority.',
       phone: '9777 050 048'

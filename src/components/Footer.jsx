@@ -1,8 +1,21 @@
-import React from "react";
+import React from 'react';
+// import ScrollReveal from 'scrollreveal';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhoneAlt } from 'react-icons/fa';
 import bhoomika from "../assets/bhoomika.png";
 
 const Footer = () => {
+
+  // useEffect(() => {
+  //   ScrollReveal().reveal(".reveal", {
+  //     distance: "30px",
+  //     origin: "bottom",
+  //     opacity: 0,
+  //     duration: 1000,  
+  //     delay: 200,      
+  //     easing: "ease-in-out",
+  //     reset: true,   
+  //   });
+  // }, []);
 
   const handleMouseMoveButton = (e) => {
       const button = e.currentTarget;
