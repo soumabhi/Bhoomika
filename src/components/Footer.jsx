@@ -69,20 +69,20 @@ const Footer = () => {
                   </a>
                 </li>
                 
-                <li className="flex items-center gap-2 text-gray-700">
+                <li className="flex justify-center sm:justify-start items-center gap-2 text-gray-700">
                   <FaPhoneAlt size={18} className="text-lime-300 hover:text-cyan-900" />
                   <span className="font-semibold text-white hover:text-black">+91 9777050048</span>
                   
                   
                 </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  {/* <FaPhoneAlt size={18} className="text-lime-300 hover:text-cyan-900" /> */}
+                <li className="flex justify-center sm:justify-start items-center gap-2 text-gray-700">
+                  {/* <FaPhoneAlt size={18} className="text-lime-300 hover:text-cyan-900" /  > */}
                   <li><span className="text-sm text-lime-300 hover:text-cyan-900">MON to SAT: 09:00 am - 08:00 pm</span></li>
                   
                   
                   
                 </li>
-                <li className="flex items-center gap-2 text-gray-700">
+                <li className="flex justify-center sm:justify-start items-center gap-2 text-gray-700">
                  
                   <li><span className="text-sm text-lime-300 hover:text-cyan-900">SUNDAY :09:00 am - 05:00 pm</span></li>
                   

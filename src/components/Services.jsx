@@ -104,7 +104,7 @@ const Services = () => {
       >
         Our Services
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 p-5 md:p-0">
         {services.map((service, index) => (
           <div
             key={index}
@@ -114,7 +114,7 @@ const Services = () => {
               <div className="text-3xl sm:text-4xl">{service.icon}</div>
               <h3 className="text-xl sm:text-2xl font-bold text-cyan-900 ml-4 sm:ml-6">{service.name}</h3>
             </div>
-            <p className="text-black text-base sm:text-lg leading-relaxed">{service.description}</p>
+            <p className="text-black text-lg leading-relaxed">{service.description}</p>
           </div>
         ))}
       </div>
@@ -125,13 +125,14 @@ const Services = () => {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
             We are pleased to offer you the <br></br><span className="text-lime-400">chance to have healthy</span><br></br> vision.
           </h2>
+          <a href="/service">
           <button
             type="button"
             className="bg-cyan-700 hover:bg-lime-500 text-white hover:text-black font-medium rounded-lg text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3 text-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer"
           >
-            Book an Appointment
-          
+          Book an Appointment
           </button>
+          </a>
         </div>
         
       </div>

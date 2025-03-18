@@ -35,7 +35,7 @@ const Hero = () => {
     const heroContent = {
         tagline: "Premium Eye Care Solution",
         title: "Vision Excellence Since 2009",
-        description: "Delivering expert eyecare with precision and compassion – because your vision deserves nothing but the best. Our state-of-the-art technology and board-certified specialists ensure superior care for all your eye health needs.",
+        description: "Delivering expert Eyecare with precision and compassion—because your eyes deserve nothing but the best!",
         buttonText: "BOOK AN APPOINTMENT",
         secondaryButtonText: "OUR SERVICES"
     };
@@ -60,7 +60,7 @@ const Hero = () => {
     };
 
     const handleServiceClick = () => {
-        navigate('/services'); // Navigate to /services
+        navigate('/service'); // Navigate to /services
     };
 
     return (
@@ -75,7 +75,7 @@ const Hero = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
                     {/* Left Section - Text Content */}
                     <div className={`reveal w-full lg:w-1/2 space-y-4 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-                        <div className="w-20 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full mb-2"></div>
+                        <div className="w-15 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-600 mb-7"></div>
 
                         <h2 className="text-cyan-400 text-lg md:text-xl font-medium tracking-wide">
                             {heroContent.tagline}
@@ -100,9 +100,9 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-3 mt-6">
                             <button
                                 className="relative overflow-hidden group bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-6 py-3 rounded-lg sm:rounded-full flex items-center justify-center gap-2 shadow-lg shadow-cyan-400/20 transform transition-all duration-300 hover:scale-105 cursor-pointer"
-                                onMouseMove={handleMouseMoveButton}
-                                onMouseLeave={handleMouseLeaveButton}
-                                onClick={handleAppointmentClick} // Add onClick handler
+                                // onMouseMove={handleMouseMoveButton}
+                                // onMouseLeave={handleMouseLeaveButton}
+                                // onClick={handleAppointmentClick} // Add onClick handler
                             >
                                 <span className="relative z-10 font-semibold tracking-wide text-sm">{heroContent.buttonText}</span>
                                 <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">→</span>
