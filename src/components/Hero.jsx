@@ -71,7 +71,7 @@ const Hero = () => {
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-700 rounded-full filter blur-3xl opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
             </div>
 
-            <div className="container mx-auto py-8 md:py-16 px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="container mx-auto py-8 md:py-30 px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
                     {/* Left Section - Text Content */}
                     <div className={`reveal w-full lg:w-1/2 space-y-4 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>

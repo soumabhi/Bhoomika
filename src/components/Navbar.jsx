@@ -50,9 +50,11 @@ const Navbar = () => {
               <a href="/contact"><li className='cursor-pointer md:hover:scale-105 lg:hover:scale-110 transition-all duration-300 ease-in-out hover:text-cyan-500'>Contact</li></a>
             </ul>
 
+            <a href="/appointment">
             <button type="button" className="hidden lg:inline-flex text-gray-900 hover:text-white bg-lime-400 hover:bg-gradient-to-r from-[#04637B] via-cyan-600 to-[#04637B] font-medium rounded-lg text-sm px-4 py-2.5 text-center items-center transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-md hover:shadow-xl cursor-pointer">
               Book an Appointment
             </button>
+            </a>
           </div>
 
           <div className='lg:hidden'>
