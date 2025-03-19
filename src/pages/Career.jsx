@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import eyeview from '../assets/eyeview.jpg';
 
 const Career = () => {
   const [jobListings, setJobListings] = useState([]);
@@ -137,7 +138,10 @@ const Career = () => {
       {/* Hero Section */}
       <div className="relative h-[50vh] flex items-center justify-center bg-gradient-to-r from-cyan-600 to-blue-700 overflow-hidden">
         <div className="absolute inset-0 bg-black/20 z-10"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1280&q=80')] bg-cover bg-center mix-blend-overlay"></div>
+        <div
+                  className="absolute inset-0 bg-cover bg-center mix-blend-overlay"
+                  style={{ backgroundImage: `url(${eyeview})` }}
+                ></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
         <div className="relative z-20 text-center text-white max-w-4xl px-4">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
@@ -370,110 +374,17 @@ const Career = () => {
         )}
       </div>
 
-      {/* Benefits Section */}
-      <div className="bg-gradient-to-br from-cyan-700 to-blue-800 text-white py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Benefits & Perks
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Flexible Hours */}
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl hover:bg-white/20 transition duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10 mb-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <h3 className="text-xl font-bold mb-2">Flexible Hours</h3>
-              <p className="text-cyan-100">
-                Work when you're most productive with our flexible scheduling
-                options.
-              </p>
-            </div>
-            {/* Health Insurance */}
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl hover:bg-white/20 transition duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10 mb-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-              <h3 className="text-xl font-bold mb-2">Health Insurance</h3>
-              <p className="text-cyan-100">
-                Comprehensive health, dental, and vision coverage for you and
-                your family.
-              </p>
-            </div>
-            {/* Remote Work */}
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl hover:bg-white/20 transition duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10 mb-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                />
-              </svg>
-              <h3 className="text-xl font-bold mb-2">Remote Work</h3>
-              <p className="text-cyan-100">
-                Work from anywhere with our remote-friendly policies and tools.
-              </p>
-            </div>
-            {/* Learning Budget */}
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl hover:bg-white/20 transition duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10 mb-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-              <h3 className="text-xl font-bold mb-2">Learning Budget</h3>
-              <p className="text-cyan-100">
-                Annual budget for courses, books, and conferences to help you
-                grow.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Job Description Pop-up */}
-      {showDescription && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white p-8 rounded-xl w-full max-w-3xl shadow-2xl">
+      {/* {showDescription && (
+        <div className="fixed inset-0 flex items-center justify-center p-4 z-50">
+        <img 
+          src={eyeview} 
+          alt="Background" 
+          className="absolute inset-0 w-full h-screen object-cover" 
+        />
+          <div className="relative bg-white p-8 rounded-xl w-full max-w-5xl shadow-2xl">
             <div className="flex justify-between items-start mb-6">
-              <div>
+              <div> 
                 <h2 className="text-3xl font-bold text-cyan-800">
                   {selectedJob.title}
                 </h2>
@@ -533,7 +444,87 @@ const Career = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
+      {showDescription && (
+  <div className="fixed inset-0 flex items-center justify-center p-4 z-50 bg-opacity-50">
+    {/* Background Image */}
+    <img 
+      src={eyeview} 
+      alt="Background" 
+      className="absolute inset-0 w-full h-[120lvh] object-cover"
+    />
+    
+    {/* Modal Container */}
+    <div className="relative bg-white p-6 sm:p-8 rounded-xl w-full max-w-5xl shadow-2xl overflow-auto max-h-[90vh]">
+      {/* Header */}
+      <div className="flex justify-between items-start mb-4 sm:mb-6">
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-bold text-cyan-800">
+            {selectedJob.title}
+          </h2>
+          <div className="flex flex-wrap gap-2 mt-2">
+            <span className="bg-cyan-100 text-cyan-700 text-xs px-3 py-1 rounded-full font-semibold">
+              {selectedJob.jobType}
+            </span>
+            <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full font-semibold">
+              {selectedJob.location}
+            </span>
+          </div>
+        </div>
+        {/* Close Button */}
+        <button
+          onClick={() => setShowDescription(false)}
+          className="text-gray-500 hover:text-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Job Description */}
+      <div className="bg-gray-50 p-4 rounded-lg mb-6">
+        <h3 className="text-lg font-semibold text-cyan-800 mb-2">
+          Job Description
+        </h3>
+        <p className="text-gray-700 whitespace-pre-line">
+          {selectedJob.description}
+        </p>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
+        <button
+          onClick={() => setShowDescription(false)}
+          className="w-full sm:w-auto bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-6 rounded-lg transition duration-300"
+        >
+          Close
+        </button>
+        <button
+          onClick={() => {
+            setShowDescription(false);
+            handleApplyClick(selectedJob);
+          }}
+          className="w-full sm:w-auto bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white font-bold py-2 px-6 rounded-lg transition duration-300 shadow-md"
+        >
+          Apply for this Position
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
 
       {/* Multi-step Apply Form Modal */}
       {showApplyForm && (
