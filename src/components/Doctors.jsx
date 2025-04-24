@@ -1,45 +1,94 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import done from "../assets/doctors/ajatsatrutripathy.png";
+import dtwo from "../assets/doctors/dhaneshwarpradhan.png";
+import dthree from "../assets/doctors/kiranbharadwaj.png";
+import dfour from "../assets/doctors/nandhakumarc.png";
+import dfive from "../assets/doctors/pkmohanty.png";
+import dsix from "../assets/doctors/swetamohapatra.png";
 
 const doctors = [
-  { name: "Dr. Rajesh Verma", specialty: "Cataract Surgery", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d" },
-  { name: "Dr. Anjali Sharma", specialty: "Retina Specialist", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2" },
-  { name: "Dr. Amit Mehta", specialty: "Glaucoma Expert", image: "https://images.unsplash.com/photo-1622253692010-333f2da60319" }
+  { name: "Dr. Ajatsatru Tripathy", specialty: "Cataract Surgery", image: done },
+  { name: "Dr. Dhaneshwar Pradhan", specialty: "Cataract Surgery", image: dtwo },
+  { name: "Dr. Kiran Bharadwaj", specialty: "Cataract Surgery", image: dthree },
+  { name: "Dr. Nandhakumar C", specialty: "Cataract Surgery", image: dfour },
+  { name: "Dr. P. K. Mohanty", specialty: "Cataract Surgery", image: dfive },
+  { name: "Dr. Sweta Mohapatra", specialty: "Cataract Surgery", image: dsix },
 ];
 
 const Doctors = () => {
+  const doctorsContainerRef = useRef(null);
+  const sectionRef = useRef(null);
+  
+  useEffect(() => {
+    const importAndInitScroll = async () => {
+      try {
+        const InfiniteHorzScrollModule = await import('@kreonovo/infinitescroll');
+        const InfiniteHorzScroll = InfiniteHorzScrollModule.default;
+        
+        if (doctorsContainerRef.current) {
+          const options = {
+            duration: 5,
+            direction: 'left',
+            disableMask: true 
+          };
+          
+          new InfiniteHorzScroll(doctorsContainerRef.current, options);
+        }
+      } catch (error) {
+        console.error("Failed to load InfiniteHorizScroll:", error);
+      }
+    };
+    
+    importAndInitScroll();
+  }, []);
+  
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-16 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-cyan-800 text-center mb-12">
+    <section ref={sectionRef} className="py-16 px-4 md:px-8 lg:px-16 bg-gray-50 w-full overflow-hidden">
+      <div className="w-full mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-cyan-800 text-center mb-16">
           Our Expert Ophthalmologists
         </h2>
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {doctors.map((doctor, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group transform hover:scale-105"
-            >
-              <img 
-                src={doctor.image} 
-                alt={doctor.name} 
-                className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{doctor.name}</h3>
-                <p className="text-cyan-700 font-medium">{doctor.specialty}</p>
-                <div className="mt-4">
-                  <button className="text-white bg-cyan-600 hover:bg-cyan-700 py-2 px-4 rounded-lg font-semibold flex items-center justify-center w-full transition-all duration-300">
-                    <span>View Profile</span>
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+        
+        <div className="w-full overflow-hidden">
+          <div 
+            ref={doctorsContainerRef} 
+            className="flex"
+            style={{ marginLeft: "-8px", marginRight: "-8px" }}
+          >
+            {doctors.map((doctor, index) => (
+              <div 
+                key={index} 
+                className="flex-shrink-0"
+                style={{ margin: "0 8px" }}
+              >
+                <div 
+                  className="rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer hover:scale-103 transform"
+                  style={{ width: "458px", maxWidth: "100%" }}
+                >
+                  <img 
+                    src={doctor.image} 
+                    alt="Ophthalmologist" 
+                    className="w-full h-auto object-cover"
+                    style={{ aspectRatio: "458/412" }}
+                  />
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
+      
+      {/* Add CSS to ensure proper rendering */}
+      <style jsx="true">{`
+        /* Force the section to take up full width */
+        section {
+          width: 100vw !important;
+          max-width: 100% !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          overflow-x: hidden !important;
+        }
+      `}</style>
     </section>
   );
 };
