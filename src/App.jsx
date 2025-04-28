@@ -15,6 +15,7 @@ import BlogPage from "./pages/Blog";
 import AppointBtn from "./pages/AppointButton"
 import Appointment from "./pages/Appoitment";
 import Fellowship from "./pages/Fellowship";
+import FormPage from './pages/FormPage';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/blogs" element={<BlogPage/>} />
         <Route path="/appointment" element={<Appointment/>} />
         <Route path="/fellowship" element={<Fellowship/>} />
+        <Route path="/mpreg" element={<FormPage />} />
         
         
       </Routes>
