@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import eyeview from "../assets/eyeview.jpg";
 
 export default function MedicalProfessionalForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(null);
+    const [resumeFileName, setResumeFileName] = useState('');
+    const fileInputRef = useRef(null);
 
     const [formData, setFormData] = useState({
         fullName: '',
@@ -13,6 +15,7 @@ export default function MedicalProfessionalForm() {
         registrationNumber: '',
         registeredWithStateCouncil: '',
         fellowship: '',
+        resume: null,
         opdSkills: {
             comprehensive: false,
             medicalRetina: false,
@@ -50,6 +53,7 @@ export default function MedicalProfessionalForm() {
                     registrationNumber: '',
                     registeredWithStateCouncil: '',
                     fellowship: '',
+                    resume: null,
                     opdSkills: {
                         comprehensive: false,
                         medicalRetina: false,
@@ -72,6 +76,10 @@ export default function MedicalProfessionalForm() {
                     numPublications: 0,
                     numPresentations: 0
                 });
+                setResumeFileName('');
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = '';
+                }
             }, 5000); // 5 seconds
         }
 
@@ -80,7 +88,27 @@ export default function MedicalProfessionalForm() {
     }, [submitted]);
 
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value, type, checked, files } = e.target;
+
+        if (type === 'file') {
+            if (files && files[0]) {
+                const file = files[0];
+                // Check if file is a PDF
+                if (!file.name.toLowerCase().endsWith('.pdf')) {
+                    setError('Please upload a PDF file only');
+                    e.target.value = '';
+                    return;
+                }
+
+                setFormData(prev => ({
+                    ...prev,
+                    resume: file
+                }));
+                setResumeFileName(file.name);
+                setError(null);
+            }
+            return;
+        }
 
         if (name.includes('.')) {
             const nameParts = name.split('.');
@@ -119,16 +147,42 @@ export default function MedicalProfessionalForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validate resume is uploaded
+        if (!formData.resume) {
+            setError('Resume is required. Please upload your resume in PDF format.');
+            return;
+        }
+
         setIsSubmitting(true);
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:5000/api/forms/submit', {
+            // Create a FormData object for file upload
+            const formDataObj = new FormData();
+
+            // Append all form data fields
+            formDataObj.append('fullName', formData.fullName);
+            formDataObj.append('email', formData.email);
+            formDataObj.append('pgDegree', formData.pgDegree);
+            formDataObj.append('registrationNumber', formData.registrationNumber);
+            formDataObj.append('registeredWithStateCouncil', formData.registeredWithStateCouncil);
+            formDataObj.append('fellowship', formData.fellowship);
+            formDataObj.append('resume', formData.resume);
+
+            // Append nested objects as JSON strings
+            formDataObj.append('opdSkills', JSON.stringify(formData.opdSkills));
+            formDataObj.append('surgicalSkills', JSON.stringify(formData.surgicalSkills));
+
+            formDataObj.append('previousWorkExperiences', formData.previousWorkExperiences);
+            formDataObj.append('numPublications', formData.numPublications);
+            formDataObj.append('numPresentations', formData.numPresentations);
+
+            const response = await fetch('http://localhost:443/api/forms/submit', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
+                body: formDataObj,
+                // Note: Do not set Content-Type header when using FormData
+                // The browser will set the proper boundary for the multipart form
             });
 
             const contentType = response.headers.get("content-type");
@@ -231,6 +285,56 @@ export default function MedicalProfessionalForm() {
                                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                                     placeholder="doctor@example.com"
                                 />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Resume Upload Section */}
+                    <div className="mb-8">
+                        <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <svg className="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Resume
+                        </h2>
+                        <div className="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-gray-300">
+                            <div className="text-center">
+                                <svg className="mx-auto h-11 w-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                </svg>
+                                <div className="mt-2">
+                                    <label htmlFor="resume-upload" className="text-sm font-medium text-gray-700">
+                                        <span className="text-indigo-600">Upload your resume</span> <span className="text-red-500">*</span>
+                                        <p className="text-xs text-gray-500">PDF only (Max 5MB)</p>
+                                    </label>
+                                    <input
+                                        id="resume-upload"
+                                        name="resume"
+                                        type="file"
+                                        ref={fileInputRef}
+                                        accept=".pdf"
+                                        onChange={handleChange}
+                                        className="sr-only"
+                                        required
+                                    />
+                                </div>
+                                <div className="mt-3">
+                                    <button
+                                        type="button"
+                                        onClick={() => document.getElementById('resume-upload').click()}
+                                        className="inline-flex items-center px-4 py-2 border border-indigo-300 rounded-md shadow-sm text-sm font-medium text-indigo-700 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    >
+                                        <svg className="-ml-1 mr-2 h-5 w-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+                                        </svg>
+                                        Select File
+                                    </button>
+                                </div>
+                                {resumeFileName && (
+                                    <div className="mt-3 text-sm text-gray-600 bg-blue-50 p-2 rounded inline-block">
+                                        <span className="font-medium">File selected:</span> {resumeFileName}
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -431,7 +535,7 @@ export default function MedicalProfessionalForm() {
                                     />
                                 </div>
                                 <div className="flex items-center justify-between">
-                                    <label className="text-sm font-medium text-gray-700">Occuloplasty Cases</label>
+                                    <label className="text-sm font-medium text-gray-700">Oculoplasty Cases</label>
                                     <input
                                         type="number"
                                         name="surgicalSkills.occuloplasty"
@@ -470,25 +574,34 @@ export default function MedicalProfessionalForm() {
                         </div>
                     </div>
 
-                    {/* Professional Achievements */}
+                    {/* Previous Work Experience */}
                     <div className="mb-8">
                         <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
                             <svg className="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
-                            Professional Achievements
+                            Previous Work Experience
                         </h2>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Previous Work Experiences</label>
+                        <div>
                             <textarea
                                 name="previousWorkExperiences"
                                 value={formData.previousWorkExperiences}
                                 onChange={handleChange}
                                 rows="4"
                                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                                placeholder="Describe your previous work experiences"
+                                placeholder="Describe your previous work experiences and roles"
                             ></textarea>
                         </div>
+                    </div>
+
+                    {/* Research Publications & Presentations */}
+                    <div className="mb-8">
+                        <h2 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            <svg className="w-5 h-5 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                            Research & Presentations
+                        </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Number of Publications</label>
@@ -516,33 +629,36 @@ export default function MedicalProfessionalForm() {
                     </div>
 
                     {/* Submit Button */}
-                    <div className="flex justify-center lg:justify-end">
+                    <div className="flex justify-center">
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200 shadow-lg flex items-center cursor-pointer
-                            "
+                            className={`cursor-pointer px-8 py-3 rounded-lg shadow-lg text-white font-semibold text-lg transition duration-200 ${isSubmitting
+                                    ? 'bg-gray-400 cursor-not-allowed'
+                                    : 'bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 transform hover:-translate-y-1'
+                                }`}
                         >
                             {isSubmitting ? (
-                                <>
-                                    <svg className="animate-spin -ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <div className="flex items-center">
+                                    <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
                                     Processing...
-                                </>
+                                </div>
                             ) : (
-                                <>
-                                    Submit Registration
-                                    <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-                                    </svg>
-                                </>
+                                'Submit Application'
                             )}
                         </button>
                     </div>
                 </form>
             </div>
+
+            {/* Info Footer */}
+            {/* <div className="max-w-4xl mx-auto mt-6 text-center text-gray-600 text-sm">
+                <p>Thank you for your interest in joining our medical professional network.</p>
+                <p>For any queries, please contact our recruitment team at <span className="text-indigo-600">recruitment@eyeclinic.com</span></p>
+            </div> */}
         </div>
     );
 }
