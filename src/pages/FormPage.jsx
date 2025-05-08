@@ -20,7 +20,9 @@ export default function MedicalProfessionalForm() {
             comprehensive: false,
             medicalRetina: false,
             glaucoma: false,
-            paediatric: false
+            paediatric: false,
+            cornea: false,
+            oculoplasty: false
         },
         surgicalSkills: {
             cataract: {
@@ -58,7 +60,9 @@ export default function MedicalProfessionalForm() {
                         comprehensive: false,
                         medicalRetina: false,
                         glaucoma: false,
-                        paediatric: false
+                        paediatric: false,
+                        cornea: false,
+                        oculoplasty: false,
                     },
                     surgicalSkills: {
                         cataract: {
@@ -181,8 +185,6 @@ export default function MedicalProfessionalForm() {
             const response = await fetch('http://localhost:443/api/forms/submit', {
                 method: 'POST',
                 body: formDataObj,
-                // Note: Do not set Content-Type header when using FormData
-                // The browser will set the proper boundary for the multipart form
             });
 
             const contentType = response.headers.get("content-type");
@@ -299,13 +301,13 @@ export default function MedicalProfessionalForm() {
                         </h2>
                         <div className="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-gray-300">
                             <div className="text-center">
-                                <svg className="mx-auto h-11 w-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                {/* <svg className="mx-auto h-11 w-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                                </svg>
+                                </svg> */}
                                 <div className="mt-2">
                                     <label htmlFor="resume-upload" className="text-sm font-medium text-gray-700">
                                         <span className="text-indigo-600">Upload your resume</span> <span className="text-red-500">*</span>
-                                        <p className="text-xs text-gray-500">PDF only (Max 5MB)</p>
+                                        <p className="text-xs text-gray-500">PDF only (Max 2MB)</p>
                                     </label>
                                     <input
                                         id="resume-upload"
@@ -451,6 +453,28 @@ export default function MedicalProfessionalForm() {
                                         className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                                     />
                                     <label htmlFor="opdPaediatric" className="ml-2 text-sm text-gray-700">Paediatric</label>
+                                </div>
+                                <div className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="opdCornea"
+                                        name="opdSkills.cornea"
+                                        checked={formData.opdSkills.cornea}
+                                        onChange={handleChange}
+                                        className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                                    />
+                                    <label htmlFor="opdCornea" className="ml-2 text-sm text-gray-700">Cornea</label>
+                                </div>
+                                <div className="flex items-center">
+                                    <input
+                                        type="checkbox"
+                                        id="opdOculoplasty"
+                                        name="opdSkills.oculoplasty"
+                                        checked={formData.opdSkills.oculoplasty}
+                                        onChange={handleChange}
+                                        className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+                                    />
+                                    <label htmlFor="opdOculoplasty" className="ml-2 text-sm text-gray-700">Oculoplasty</label>
                                 </div>
                             </div>
                         </div>
